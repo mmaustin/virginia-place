@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
-const dbConnect = (url) => {
+const connectDB = (url) => {
     return mongoose.connect(url);
 }
 
-export default dbConnect;
+export default connectDB;
