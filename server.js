@@ -1,8 +1,8 @@
 import express from 'express';
-import errorHandlerMiddleware from './middleware/error-handler.js';
 const app = express();
 
 import notFoundMiddleware from './middleware/not-found.js';
+import errorHandlerMiddleware from './middleware/error-handler.js';
 
 app.get('/', (req, res) => {
     res.send('Welcome');
