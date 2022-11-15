@@ -28,7 +28,7 @@ const UserSchema = mongoose.Schema({
         type: String,
         trim: true,
         maxlength: 5,
-        default: 'Y\'all already know.',
+        default: 'Y\'all already know',
       }    
 })
 
