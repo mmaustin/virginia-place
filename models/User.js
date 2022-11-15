@@ -23,16 +23,12 @@ const UserSchema = mongoose.Schema({
         minlength: 6,
         select: false,
       },
-      lastName: {
+      buildingNumber: {
         type: String,
         trim: true,
-        maxlength: 20,
-        default: 'lastName',
-      },
-      location: {
-        type: String,
-        trim: true,
-        maxlength: 20,
-        default: 'my city',
+        maxlength: 5,
+        default: 'Y\'all already know.',
       }    
 })
+
+export default mongoose.model('User', UserSchema);
