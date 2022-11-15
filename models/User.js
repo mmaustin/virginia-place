@@ -27,7 +27,7 @@ const UserSchema = mongoose.Schema({
       buildingNumber: {
         type: String,
         trim: true,
-        maxlength: 5,
+        maxlength: 20,
         default: 'Y\'all already know',
       }    
 })
