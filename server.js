@@ -5,12 +5,14 @@ dotenv.config();
 
 import connectDB from './db/connect.js';
 
+import authRouter from './routes/authRoutes.js';
+
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 
-app.get('/api/v1/plush', (req, res) => {
-    res.send('Welcome');
-})
+app.use(express.json());
+
+app.use('/api/v1/auth', authRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
