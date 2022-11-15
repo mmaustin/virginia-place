@@ -5,9 +5,15 @@ const register = async (req, res) => {
 }
 
 const login = async (req, res) => {
-    res.status(200).json({msg: 'Login user'});
+    res.status(201).json({msg: 'Login user'});
 }
 
 const updateUser = async (req, res) => {
-    res.status(200).json({msg: 'Update user'});
+    res.status(201).json({msg: 'Update user'});
+}
+
+export {
+    register,
+    login,
+    updateUser
 }
