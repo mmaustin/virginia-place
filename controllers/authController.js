@@ -12,9 +12,11 @@ const register = async (req, res) => {
     if (userAlreadyExists) {
       throw new BadRequestError('Email already in use')
     }
+    
     const user = await User.create({ name, email, password })
   
     const token = user.createJWT()
+    //this is the info that's returned to the front-end
     res.status(StatusCodes.CREATED).json({
       user: {
         name: user.name,
