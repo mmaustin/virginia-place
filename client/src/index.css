@@ -143,6 +143,11 @@ ul {
   display: block;
   object-fit: cover;
 }
+
+.main-img {
+  display: none;
+}
+
 /* buttons */
 
 .btn {
