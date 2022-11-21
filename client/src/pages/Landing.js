@@ -1,5 +1,5 @@
 import main from '../assets/images/main.svg';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 const Landing = () => {
   return (
     <main>
@@ -17,7 +17,7 @@ const Landing = () => {
                     chambray keffiyeh. Health goth vinyl DIY pork belly skateboard
                     snackwave, artisan same everyday carry church-key farm-to-table kombucha.
                 </p>
-                <button className='btn btn-hero'> Login/Register</button>
+                <Link to='/' className='btn btn-hero'> Login/Register</Link>
             </div>
             <img src={main} alt='event scene' className='img'/>
         </div>
