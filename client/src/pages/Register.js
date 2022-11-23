@@ -27,6 +27,31 @@ const Register = () => {
           id='name'
           name='name'
           vaule={values.name}
+          onChange={e => setInput(e)}
+        />
+        <label htmlFor="email">Email: </label>
+        <input
+          type='text'
+          id='email'
+          name='email'
+          vaule={values.email}
+          onChange={e => setInput(e)}
+        />
+        <label htmlFor="password">Password: </label>
+        <input
+          type='text'
+          id='password'
+          name='password'
+          vaule={values.password}
+          onChange={e => setInput(e)}
+        />
+        <label htmlFor="buildingNumber">Building Number:</label>
+        <input
+          type='text'
+          id='buildingNumber'
+          name='buildingNumber'
+          vaule={values.buildingNumber}
+          onChange={e => setInput(e)}
         />
       </form>
     </main>
