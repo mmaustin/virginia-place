@@ -10,7 +10,13 @@ const localState = {
 
 
 const Register = () => {
-  const [values, setValue] = useState(localState);
+  const [values, setValues] = useState(localState);
+
+  const setInput = e =>{
+    let name = e.target.name;
+    let value = e.target.value;
+    console.log(`Name is ${name}: ${value}`)
+  }
 
   return (
     <main>
