@@ -13,7 +13,17 @@ const Register = () => {
   const [values, setValue] = useState(localState);
 
   return (
-    <div>Register</div>
+    <main>
+      <form>
+        <label htmlFor="name">Name:</label>
+        <input
+          type='text'
+          id='name'
+          name='name'
+          vaule={values.name}
+        />
+      </form>
+    </main>
   )
 }
 export default Register;
