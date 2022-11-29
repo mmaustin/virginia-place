@@ -15,6 +15,7 @@ const Register = () => {
   const setInput = e =>{
     let name = e.target.name;
     let value = e.target.value;
+    setValues({...values, [e.target.name]: e.target.values})
     console.log(`Name is ${name}: ${value}`)
   }
 
