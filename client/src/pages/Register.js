@@ -12,7 +12,7 @@ const localState = {
 const Register = () => {
   const [values, setValues] = useState(localState);
 
-  const setInput = e =>{
+  const handleChange = e =>{
     let name = e.target.name;
     let value = e.target.value;
     setValues({...values, [e.target.name]: e.target.values})
@@ -20,15 +20,15 @@ const Register = () => {
   }
 
   return (
-    <main>
-      <form>
+    <main className='full-page'>
+      <form className='form'>
         <label htmlFor="name">Name:</label>
         <input
           type='text'
           id='name'
           name='name'
           vaule={values.name}
-          onChange={e => setInput(e)}
+          handleChange={handleChange}
         />
         <label htmlFor="email">Email: </label>
         <input
@@ -36,7 +36,7 @@ const Register = () => {
           id='email'
           name='email'
           vaule={values.email}
-          onChange={e => setInput(e)}
+          handleChange={handleChange}
         />
         <label htmlFor="password">Password: </label>
         <input
@@ -44,7 +44,7 @@ const Register = () => {
           id='password'
           name='password'
           vaule={values.password}
-          onChange={e => setInput(e)}
+          handleChange={handleChange}
         />
         <label htmlFor="buildingNumber">Building Number:</label>
         <input
@@ -52,7 +52,7 @@ const Register = () => {
           id='buildingNumber'
           name='buildingNumber'
           vaule={values.buildingNumber}
-          onChange={e => setInput(e)}
+          handleChange={handleChange}
         />
       </form>
     </main>
