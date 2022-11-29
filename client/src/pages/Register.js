@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { FormRow } from '../components';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 
 const localState = {
   name: '',
@@ -39,13 +39,6 @@ const Register = () => {
           type='password'
           name='password'
           vaule={values.password}
-          handleChange={handleChange}
-        />
-        <FormRow
-          labelText='Building Number'
-          type='text'
-          name='buildingNumber'
-          vaule={values.buildingNumber}
           handleChange={handleChange}
         />
       </form>
