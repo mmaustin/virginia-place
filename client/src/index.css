@@ -190,6 +190,15 @@ ul {
   background: var(--red-dark);
   color: var(--white);
 }
+
+.member-btn {
+  background: transparent;
+  border: transparent;
+  color: var(--primary-500);
+  cursor: pointer;
+  letter-spacing: var(--letterSpacing);
+}
+
 /* alerts */
 .alert {
   padding: 0.375rem 0.75rem;
