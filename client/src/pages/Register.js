@@ -13,6 +13,10 @@ const localState = {
 const Register = () => {
   const [values, setValues] = useState(localState);
 
+const onSubmit = () => {
+  console.log('stuff has been submitted');
+}
+
   const handleChange = e =>{
     let name = e.target.name;
     let value = e.target.value;
@@ -22,7 +26,9 @@ const Register = () => {
 
   return (
     <main className='full-page'>
-      <form className='form'>
+      <form className='form' onSubmit={onSubmit}>
+        <h2>LOGO</h2>
+        <h3>Login</h3>
         <FormRow
           type='text'
           name='name'
@@ -41,6 +47,9 @@ const Register = () => {
           vaule={values.password}
           handleChange={handleChange}
         />
+        <button type="submit" className='btn btn-block'>
+          Submit
+        </button>
       </form>
     </main>
   )
