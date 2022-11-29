@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import { FormRow } from '../components';
 import {Link} from 'react-router-dom';
 
 const localState = {
@@ -22,34 +23,27 @@ const Register = () => {
   return (
     <main className='full-page'>
       <form className='form'>
-        <label htmlFor="name">Name:</label>
-        <input
+        <FormRow
           type='text'
-          id='name'
           name='name'
           vaule={values.name}
           handleChange={handleChange}
         />
-        <label htmlFor="email">Email: </label>
-        <input
-          type='text'
-          id='email'
+        <FormRow
+          type='email'
           name='email'
           vaule={values.email}
           handleChange={handleChange}
         />
-        <label htmlFor="password">Password: </label>
-        <input
-          type='text'
-          id='password'
+        <FormRow
+          type='password'
           name='password'
           vaule={values.password}
           handleChange={handleChange}
         />
-        <label htmlFor="buildingNumber">Building Number:</label>
-        <input
+        <FormRow
+          labelText='Building Number'
           type='text'
-          id='buildingNumber'
           name='buildingNumber'
           vaule={values.buildingNumber}
           handleChange={handleChange}
