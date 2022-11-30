@@ -5,8 +5,7 @@ const initialState = {
     isLoading: false,
     showAlert: false,
     alertText: '',
-    alertType: '',
-    number: 7   
+    alertType: ''
 }
 
 const AppContext = React.createContext();

@@ -1,5 +1,6 @@
 import main from '../assets/images/main.svg';
 import {Link} from 'react-router-dom';
+
 const Landing = () => {
   return (
     <main>
