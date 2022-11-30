@@ -14,6 +14,18 @@ const AppProvider = ({children}) => {
 
 
     return(
-        <></>
+        <AppContext.Provider 
+            value={{
+                
+            }}
+        >
+            {children}
+        </AppContext.Provider>
     )
 }
+
+const useAppContext = () =>{
+    return useContext(AppContext);
+}
+
+export {initialState, AppProvider, useAppContext};
