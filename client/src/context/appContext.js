@@ -1,22 +1,23 @@
 import React, { useContext, useReducer } from "react";
-
+import reducer from "./reducer";
 
 const initialState = {
     isLoading: false,
     showAlert: false,
     alertText: '',
-    alertType: '',    
+    alertType: '',
+    number: 7   
 }
 
 const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
-
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     return(
         <AppContext.Provider 
             value={{
-                
+                ...state
             }}
         >
             {children}
