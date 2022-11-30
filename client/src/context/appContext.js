@@ -1,6 +1,12 @@
 import React, { useContext, useReducer } from "react";
 import reducer from "./reducer";
 
+import {
+    DISPLAY_ALERT,
+    CLEAR_ALERT
+} from "./actions";
+
+
 const initialState = {
     isLoading: false,
     showAlert: false,
