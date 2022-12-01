@@ -6,16 +6,15 @@ import logo from '../assets/images/favicon.ico';
 
 const Landing = () => {
 
-    const getData = async ()=>{
-        const response = await fetch('/a');
-        console.log(typeof response)
-        const data = await response.json();
-        console.log(data);
-    }
+    // const getData = async ()=>{
+    //     const response = await fetch('/a');
+    //     const data = await response.json();
+    //     console.log(data.arr[0]);
+    // }
 
-    useEffect(()=>{
-        getData();
-    }, [])
+    // useEffect(()=>{
+    //     getData();
+    // }, [])
 
   return (
     <main>

@@ -13,9 +13,10 @@ import errorHandlerMiddleware from './middleware/error-handler.js';
 
 app.use(express.json());
 
-app.get('/a', (req, res)=> {
-    res.json({msg: 'Hello'});
-})
+// const array = ['apple', 'orange', 'banana'];
+// app.get('/a', (req, res)=> {
+//     res.json({arr: array});
+// })
 
 app.use('/api/v1/auth', authRouter);
 
