@@ -333,3 +333,13 @@ ul {
     margin-right: 0.5rem;
   }
 }
+
+/* my css add-ons */
+nav {
+  width: var(--fluid-width);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+}

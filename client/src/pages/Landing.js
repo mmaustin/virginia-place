@@ -1,6 +1,8 @@
 import main from '../assets/images/main.svg';
 import {Link} from 'react-router-dom';
 import { useEffect } from 'react';
+import logo from '../assets/images/favicon.ico';
+
 
 const Landing = () => {
 
@@ -18,13 +20,13 @@ const Landing = () => {
   return (
     <main>
         <nav>
-            <p> Logo Landing Page</p>
+            <img src={logo} alt='landing logo' className='logo'/>
         </nav>
         <div className='container'>
             <div className='info'>
-                <h2>
+                <h1>
                     Events Page
-                </h2>
+                </h1>
                 <p>
                     Swag typewriter pour-over whatever farm-to-table edison bulb.
                     Unicorn edison bulb whatever gatekeep, pok pok health goth cronut
