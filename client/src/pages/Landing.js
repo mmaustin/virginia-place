@@ -4,10 +4,16 @@ import { useEffect } from 'react';
 
 const Landing = () => {
 
+    const getData = async ()=>{
+        const response = await fetch('/a');
+        console.log(typeof response)
+        const data = await response.json();
+        console.log(data);
+    }
+
     useEffect(()=>{
-        const ok = fetch('http://localhost:5001/')
-        console.log(ok);
-    })
+        getData();
+    }, [])
 
   return (
     <main>
@@ -25,7 +31,7 @@ const Landing = () => {
                     chambray keffiyeh. Health goth vinyl DIY pork belly skateboard
                     snackwave, artisan same everyday carry church-key farm-to-table kombucha.
                 </p>
-                <Link to='/' className='btn btn-hero'> Login/Register</Link>
+                <Link to='/register' className='btn btn-hero'> Login/Register</Link>
             </div>
             <img src={main} alt='event scene' className='img'/>
         </div>
