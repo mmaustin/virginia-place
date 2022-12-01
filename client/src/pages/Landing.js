@@ -1,7 +1,14 @@
 import main from '../assets/images/main.svg';
 import {Link} from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Landing = () => {
+
+    useEffect(()=>{
+        const ok = fetch('http://localhost:5001/')
+        console.log(ok);
+    })
+
   return (
     <main>
         <nav>

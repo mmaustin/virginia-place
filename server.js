@@ -13,6 +13,10 @@ import errorHandlerMiddleware from './middleware/error-handler.js';
 
 app.use(express.json());
 
+app.get('/', (req, res)=> {
+    res.send('Hello');
+})
+
 app.use('/api/v1/auth', authRouter);
 
 app.use(notFoundMiddleware);
