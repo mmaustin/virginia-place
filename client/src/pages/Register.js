@@ -13,7 +13,7 @@ const localState = {
 
 const Register = () => {
   const [values, setValues] = useState(localState);
-  const {isLoading, showAlert, displayAlert} = useAppContext();
+  const {isLoading, showAlert, displayAlert, registerUser} = useAppContext();
 
 const onSubmit = (e) => {
   e.preventDefault();
@@ -22,7 +22,8 @@ const onSubmit = (e) => {
     displayAlert();
     return
   }
-  console.log(values);
+  const currentUser = {name, email, password};
+  registerUser(currentUser);
 }
 
 const toggleMember = () => {
