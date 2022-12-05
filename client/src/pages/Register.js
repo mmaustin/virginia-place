@@ -1,6 +1,7 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { FormRow, Alert } from '../components';
 import { useAppContext } from '../context/appContext';
+import {useNavigate} from 'react-router-dom';
 //import {Link} from 'react-router-dom';
 
 const localState = {
@@ -12,8 +13,9 @@ const localState = {
 
 
 const Register = () => {
+  const navigate = useNavigate();
   const [values, setValues] = useState(localState);
-  const {isLoading, showAlert, displayAlert, registerUser} = useAppContext();
+  const {user, isLoading, showAlert, displayAlert, registerUser} = useAppContext();
 
 const onSubmit = (e) => {
   e.preventDefault();
@@ -23,16 +25,28 @@ const onSubmit = (e) => {
     return
   }
   const currentUser = {name, email, password};
-  registerUser(currentUser);
+  if(isMember){
+    console.log('is member')
+  } else {
+   registerUser(currentUser);
+  }
 }
 
 const toggleMember = () => {
   setValues({...values, isMember: !values.isMember})
 }
 
-  const handleChange = e =>{
-    setValues({...values, [e.target.name]: e.target.value})
+const handleChange = e =>{
+  setValues({...values, [e.target.name]: e.target.value})
+}
+
+useEffect(()=> {
+  if(user){
+    setTimeout(()=>{
+      navigate('/');
+    }, 3000)
   }
+}, [user, navigate])
 
   return (
     <main className='full-page'>
@@ -58,7 +72,7 @@ const toggleMember = () => {
             value={values.password}
             handleChange={handleChange}
           />
-        <button type="submit" className='btn btn-block'>
+        <button type="submit" className='btn btn-block' disabled={isLoading}>
           Submit
         </button>
         <p>
