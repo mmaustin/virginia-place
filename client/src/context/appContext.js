@@ -10,20 +10,32 @@ import {
     REGISTER_USER_ERROR,    
 } from "./actions";
 
+const token = localStorage.getItem('token');
+const user = localStorage.getItem('user');
 
 const initialState = {
     isLoading: false,
     showAlert: false,
     alertText: '',
     alertType: '',
-    user: '',
-    token: ''    
+    user: user ? JSON.parse(user) : null,
+    token: token,    
 }
 
 const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState);
+
+    const addUserToLocalStorage = ({ user, token }) => {
+        localStorage.setItem('user', JSON.stringify(user))
+        localStorage.setItem('token', token)
+      }
+    
+      const removeUserFromLocalStorage = () => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+      }     
 
     const displayAlert = () => {
         dispatch({type: DISPLAY_ALERT});
