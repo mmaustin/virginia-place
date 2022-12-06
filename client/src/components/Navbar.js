@@ -1,11 +1,37 @@
 import Wrapper from '../assets/wrappers/Navbar';
-import {FiHome} from 'react-icons/fi'
+import {FaAlignLeft, FaUserCircle, FaCaretDown} from 'react-icons/fa'
+import { useAppContext } from '../context/appContext';
+import { useState } from 'react';
+import Logo from './Logo';
 
 const Navbar = () => {
   return (
     <Wrapper>
-        <h3>Navbar</h3>
-        <FiHome/>
+      <div className='nav-center'>
+        <button type='button' className='toggle-btn' onClick={toggleSidebar}>
+          <FaAlignLeft />
+        </button>
+        <div>
+          <Logo />
+          <h3 className='logo-text'>dashboard</h3>
+        </div>
+        <div className='btn-container'>
+          <button
+            type='button'
+            className='btn'
+            onClick={() => setShowLogout(!showLogout)}
+          >
+            <FaUserCircle />
+            {user?.name}
+            <FaCaretDown />
+          </button>
+          <div className={showLogout ? 'dropdown show-dropdown' : 'dropdown'}>
+            <button type='button' className='dropdown-btn' onClick={logoutUser}>
+              logout
+            </button>
+          </div>
+        </div>
+      </div>        
     </Wrapper>
   )
 }
