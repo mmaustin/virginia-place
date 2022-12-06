@@ -4,12 +4,16 @@ import Wrapper from '../../assets/wrappers/SharedLayout';
 const SharedLayout = () => {
   return (
     <Wrapper>
-        <nav>
-            <Link to='profile'>profile</Link>
-            <Link to='/'>all jobs</Link>
-            <Link to='add-job'>add jobs</Link>
-        </nav>
-        <Outlet/>
+        <main className="dashboard">
+            <nav>
+                <Link to='profile'>profile</Link>
+                <Link to='/'>all jobs</Link>
+                <Link to='add-job'>add jobs</Link>
+            </nav>
+            <div className="dashboard-page">
+                <Outlet/>
+            </div>
+        </main>
     </Wrapper>
   )
 }
