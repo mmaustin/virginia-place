@@ -5,6 +5,8 @@ import { useState } from 'react';
 import Logo from './Logo';
 
 const Navbar = () => {
+    const {logoutUser, toggleSidebar, user} = useAppContext();
+    const [showLogout, setShowLogout] = useState(false)
   return (
     <Wrapper>
       <div className='nav-center'>
@@ -13,7 +15,7 @@ const Navbar = () => {
         </button>
         <div>
           <Logo />
-          <h3 className='logo-text'>dashboard</h3>
+          {/* <h3 className='logo-text'>dashboard</h3> */}
         </div>
         <div className='btn-container'>
           <button
