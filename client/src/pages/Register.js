@@ -15,7 +15,7 @@ const localState = {
 const Register = () => {
   const navigate = useNavigate();
   const [values, setValues] = useState(localState);
-  const {user, isLoading, showAlert, displayAlert, registerUser} = useAppContext();
+  const {user, isLoading, showAlert, displayAlert, registerUser, loginUser} = useAppContext();
 
 const onSubmit = (e) => {
   e.preventDefault();
@@ -26,7 +26,7 @@ const onSubmit = (e) => {
   }
   const currentUser = {name, email, password};
   if(isMember){
-    console.log('is member')
+    loginUser(currentUser)
   } else {
    registerUser(currentUser);
   }
