@@ -11,7 +11,8 @@ import {
     LOGIN_USER_BEGIN,
     LOGIN_USER_SUCCESS,
     LOGIN_USER_ERROR,
-    LOGOUT_USER,        
+    LOGOUT_USER,
+    TOGGLE_SIDEBAR,      
 } from "./actions";
 
 const token = localStorage.getItem('token');
@@ -90,6 +91,10 @@ const AppProvider = ({children}) => {
         clearAlert();
     }
 
+    const toggleSidebar = () => {
+        dispatch({ type: TOGGLE_SIDEBAR })
+      }    
+
     const logoutUser = () => {
         dispatch({ type: LOGOUT_USER })
         removeUserFromLocalStorage()
@@ -102,6 +107,8 @@ const AppProvider = ({children}) => {
                 displayAlert,
                 registerUser,
                 loginUser,
+                logoutUser,
+                toggleSidebar,
             }}
         >
             {children}
