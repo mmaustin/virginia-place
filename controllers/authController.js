@@ -48,7 +48,7 @@ const login = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-    res.status(201).json({msg: 'Update user'});
+    res.status(200).json({msg: 'Update user'});
 }
 //testing git push issue
 export {
