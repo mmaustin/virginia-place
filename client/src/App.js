@@ -1,6 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { Landing, Error, Register, ProtectedRoute } from './pages';
-import { AllJobs, AddJob, Profile, SharedLayout } from './pages/dashboard';
+import { AllEvents, AddEvent, Profile, SharedLayout } from './pages/dashboard';
 
 const App = () => {
   return (
@@ -14,8 +14,8 @@ const App = () => {
             </ProtectedRoute>
           }
         >
-          <Route index element={<AllJobs />} />
-          <Route path='add-job' element={<AddJob />} />
+          <Route index element={<AllEvents />} />
+          <Route path='add-event' element={<AddEvent />} />
           <Route path='profile' element={<Profile />} />
         </Route>
         <Route path='/landing' element={<Landing/>} />
