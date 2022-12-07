@@ -24,7 +24,8 @@ const initialState = {
     alertText: '',
     alertType: '',
     user: user ? JSON.parse(user) : null,
-    token: token,    
+    token: token,
+    showSidebar: false,   
 }
 
 const AppContext = React.createContext();

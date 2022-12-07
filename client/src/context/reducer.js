@@ -13,7 +13,6 @@ import {
     TOGGLE_SIDEBAR,
 } from "./actions";
 
-
 const reducer = (state, action) => {
     if (action.type === DISPLAY_ALERT) {
         return {
