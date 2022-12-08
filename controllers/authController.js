@@ -48,9 +48,23 @@ const login = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-    res.status(200).json({msg: 'Update user'});
+  const { email, name, buildingNumber} = req.body
+  if (!email || !name || buildingNumber) {
+    throw new BadRequestError('Please provide all values')
+  }
+  const user = await User.findOne({ _id: req.user.userId })
+
+  user.email = email;
+  user.name = name;
+  user.buildingNumber = buildingNumber;
+
+  await user.save()
+
+  const token = user.createJWT()
+
+  res.status(StatusCodes.OK).json({ user, token})
 }
-//testing git push issue
+
 export {
     register,
     login,
