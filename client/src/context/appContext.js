@@ -12,7 +12,10 @@ import {
     LOGIN_USER_SUCCESS,
     LOGIN_USER_ERROR,
     LOGOUT_USER,
-    TOGGLE_SIDEBAR,      
+    TOGGLE_SIDEBAR,
+    UPDATE_USER_BEGIN,
+    UPDATE_USER_SUCCESS,
+    UPDATE_USER_ERROR,         
 } from "./actions";
 
 const token = localStorage.getItem('token');
@@ -94,12 +97,29 @@ const AppProvider = ({children}) => {
 
     const toggleSidebar = () => {
         dispatch({ type: TOGGLE_SIDEBAR })
-      }    
+    }    
 
     const logoutUser = () => {
         dispatch({ type: LOGOUT_USER })
         removeUserFromLocalStorage()
-      }
+    }
+
+    const updateUser = async (currentUser) => {
+        dispatch({type: UPDATE_USER_BEGIN})
+        try {
+            const {data} = await axios.patch('/api/vi/auth/updateUser');
+            const {user, token} = data;
+            dispatch({type: UPDATE_USER_SUCCESS, payload: {user, token}})
+            addUserToLocalStorage({ user, token });
+        } catch (error) {
+            if (error.response.status !== 401) {
+                dispatch({
+                  type: UPDATE_USER_ERROR,
+                  payload: { msg: error.response.data.msg },
+                })
+            }            
+        }
+    }
 
     return(
         <AppContext.Provider 
@@ -110,6 +130,7 @@ const AppProvider = ({children}) => {
                 loginUser,
                 logoutUser,
                 toggleSidebar,
+                updateUser,
             }}
         >
             {children}
