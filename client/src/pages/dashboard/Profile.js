@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Wrapper} from '../../assets/wrappers/DashboardFormPage';
+import Wrapper from '../../assets/wrappers/DashboardFormPage';
 import {useAppContext} from '../../context/appContext';
 import {FormRow, Alert} from '../../components';
 
