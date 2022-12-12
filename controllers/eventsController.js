@@ -7,7 +7,7 @@ import { BadRequestError, NotFoundError } from '../errors/index.js';
 const createEvent = async (req, res) => {
     const {organizer, eventType, description} = req.body;
 
-    if(!organizer || eventType || !description){
+    if(!organizer || !eventType || !description){
         throw new BadRequestError('Please provide all values');
     }
     req.body.createdBy = req.user.userId;

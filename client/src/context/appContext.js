@@ -28,7 +28,12 @@ const initialState = {
     alertType: '',
     user: user ? JSON.parse(user) : null,
     token: token,
-    showSidebar: false,   
+    showSidebar: false,
+    isEditing: false,
+    editEventId: '',
+    organizer: '',
+    eventType: '',
+    description: '', 
 }
 
 const AppContext = React.createContext();
