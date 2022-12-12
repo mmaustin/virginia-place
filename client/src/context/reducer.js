@@ -13,7 +13,8 @@ import {
     TOGGLE_SIDEBAR,
     UPDATE_USER_BEGIN,
     UPDATE_USER_SUCCESS,
-    UPDATE_USER_ERROR,  
+    UPDATE_USER_ERROR,
+    HANDLE_CHANGE, 
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -112,6 +113,13 @@ const reducer = (state, action) => {
           showAlert: true,
           alertType: 'danger',
           alertText: action.payload.msg,
+        }
+      }
+      
+      if (action.type === HANDLE_CHANGE) {
+        return {
+          ...state,
+          [action.payload.name]: action.payload.value,
         }
       }      
 

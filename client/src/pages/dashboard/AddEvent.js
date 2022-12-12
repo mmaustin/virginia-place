@@ -4,7 +4,7 @@ import { useAppContext } from '../../context/appContext';
 
 
 const AddEvent = () => {
-  const {showAlert, displayAlert, organizer, eventType, description, isEditing } = useAppContext();
+  const {showAlert, displayAlert, isLoading, organizer, eventType, description, isEditing, handleChange } = useAppContext();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -16,10 +16,9 @@ const AddEvent = () => {
   }
 
   const handleEventInput = (e) => {
-    e.preventDefault();
-    const name = e.target.name;
-    const value = e.target.value;
-    console.log(name + ' ' + value);
+    const name = e.target.name
+    const value = e.target.value
+    handleChange({ name, value })
   }
 
   return (
@@ -54,7 +53,7 @@ const AddEvent = () => {
               type='submit'
               className='btn btn-block submit-btn'
               onClick={handleSubmit}
-              // disabled={isLoading}
+              disabled={isLoading}
             >
               submit
             </button>
