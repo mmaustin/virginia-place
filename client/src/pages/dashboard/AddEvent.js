@@ -58,14 +58,11 @@ const AddEvent = () => {
               submit
             </button>
             <button
-              className='btn btn-block clear-btn'
-              onClick={(e)=> {
+              className='btn btn-block clear-btn'            
+              onClick={(e) => {
                 e.preventDefault()
-                console.log('right on!')}}              
-              // onClick={(e) => {
-              //   e.preventDefault()
-              //   clearValues()
-              // }}
+                clearValues()
+              }}
             >
               clear
             </button>
