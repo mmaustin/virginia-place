@@ -1,19 +1,18 @@
-//import Event from '../models/Event.js';
-//import { StatusCodes } from 'http-status-codes';
-//import { BadRequestError, NotFoundError } from '../errors/index.js';
+import Event from '../models/Event.js';
+import { StatusCodes } from 'http-status-codes';
+import { BadRequestError, NotFoundError } from '../errors/index.js';
 //import checkPermissions from '../utils/checkPermissions.js';
 
 
 const createEvent = async (req, res) => {
-    res.status(201).json({msg: 'event created'})
-    // const {organizer, description} = req.body;
+    const {organizer, eventType, description} = req.body;
 
-    // if(!organizer || !description){
-    //     throw new BadRequestError('Please provide all values');
-    // }
-    // req.body.createdBy = req.user.userId;
-    // const event = await Event.create(req.body);
-    // res.status(StatusCodes.CREATED).json({event});
+    if(!organizer || eventType || !description){
+        throw new BadRequestError('Please provide all values');
+    }
+    req.body.createdBy = req.user.userId;
+    const event = await Event.create(req.body);
+    res.status(StatusCodes.CREATED).json({event});
 
 }
 
