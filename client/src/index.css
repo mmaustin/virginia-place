@@ -253,6 +253,9 @@ ul {
 .btn-block {
   height: 35px;
 }
+.form-description{
+  height: 100px;
+}
 .form-row {
   margin-bottom: 1rem;
 }
