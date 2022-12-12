@@ -8,6 +8,10 @@ const AddEvent = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if(!organizer || !description || !eventType){
+      displayAlert()
+      return
+    }
     console.log('event created')
   }
 
