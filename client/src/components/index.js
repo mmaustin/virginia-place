@@ -3,6 +3,8 @@ import BigSideBar from "./BigSideBar";
 import FormRow from "./FormRow";
 import Navbar from "./Navbar";
 import SmallSidebar from "./SmallSidebar";
+import EventsContainer from './EventsContainer';
+import SearchContainer from './SearchContainer';
 
 export {
     FormRow,
@@ -10,4 +12,6 @@ export {
     BigSideBar,
     SmallSidebar,
     Navbar,
+    EventsContainer,
+    SearchContainer
 }

@@ -1,6 +1,11 @@
+import { SearchContainer, EventsContainer } from "../../components"
+
 const AllEvents = () => {
   return (
-    <h3>AllEvents</h3>
+    <>
+      <SearchContainer/>
+      <EventsContainer/>
+    </>
   )
 }
 export default AllEvents
