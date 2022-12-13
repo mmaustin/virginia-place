@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useReducer} from "react";
 import reducer from "./reducer";
 import axios from 'axios';
 
@@ -201,7 +201,7 @@ const AppProvider = ({children}) => {
     }
 
     const getEvents = async() => {
-        const url = `/events`;
+        let url = `/events`;
         dispatch({type: GET_EVENTS_BEGIN});
         try {
             const {data} = await authFetch(url);
@@ -212,8 +212,11 @@ const AppProvider = ({children}) => {
             })
         } catch (error) {
             console.log(error.response);
+            //logoutUser();
         }
+        clearAlert();
     }
+    
 
     return(
         <AppContext.Provider 
