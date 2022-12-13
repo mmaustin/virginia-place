@@ -4,7 +4,7 @@ import { useAppContext } from '../../context/appContext';
 
 
 const AddEvent = () => {
-  const {showAlert, displayAlert, isLoading, organizer, eventType, description, isEditing, handleChange, clearValues } = useAppContext();
+  const {showAlert, displayAlert, isLoading, organizer, eventType, description, isEditing, handleChange, clearValues, createEvent } = useAppContext();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -12,7 +12,7 @@ const AddEvent = () => {
       displayAlert()
       return
     }
-    console.log('event created')
+    createEvent();
   }
 
   const handleEventInput = (e) => {
@@ -34,6 +34,7 @@ const AddEvent = () => {
             handleChange={handleEventInput}
           />
           <FormRow
+            labelText='Event Type'
             type='text'
             name='eventType'
             value={eventType}
