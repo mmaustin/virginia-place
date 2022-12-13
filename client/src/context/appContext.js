@@ -217,6 +217,13 @@ const AppProvider = ({children}) => {
         clearAlert();
     }
     
+    const setEditEvent = (id) => {
+        console.log(`set edit id: ${id}`);
+    }
+
+    const deleteEvent = (id) => {
+        console.log(`delete event: ${id}`);
+    }
 
     return(
         <AppContext.Provider 
@@ -231,7 +238,9 @@ const AppProvider = ({children}) => {
                 handleChange,
                 clearValues,
                 createEvent,
-                getEvents
+                getEvents,
+                setEditEvent,
+                deleteEvent
             }}
         >
             {children}
