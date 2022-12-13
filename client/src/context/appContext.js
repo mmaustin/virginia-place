@@ -20,7 +20,9 @@ import {
     CLEAR_VALUES,
     CREATE_EVENT_BEGIN,
     CREATE_EVENT_SUCCESS,
-    CREATE_EVENT_ERROR,          
+    CREATE_EVENT_ERROR,
+    GET_EVENTS_BEGIN,
+    GET_EVENTS_SUCCESS,          
 } from "./actions";
 
 const token = localStorage.getItem('token');
@@ -38,7 +40,12 @@ const initialState = {
     editEventId: '',
     organizer: '',
     eventType: '',
-    description: '', 
+    description: '',
+    events: [],
+    totalEvents: 0,
+    numOfPages: 1,
+    pages: 1,
+
 }
 
 const AppContext = React.createContext();
@@ -193,6 +200,21 @@ const AppProvider = ({children}) => {
         clearAlert()       
     }
 
+    const getEvents = async() => {
+        const url = `/events`;
+        dispatch({type: GET_EVENTS_BEGIN});
+        try {
+            const {data} = await authFetch(url);
+            const {events, numOfPages, totalEvents} = data;
+            dispatch({
+                type: GET_EVENTS_SUCCESS,
+                payload: {events, numOfPages, totalEvents}
+            })
+        } catch (error) {
+            console.log(error.response);
+        }
+    }
+
     return(
         <AppContext.Provider 
             value={{
@@ -205,7 +227,8 @@ const AppProvider = ({children}) => {
                 updateUser,
                 handleChange,
                 clearValues,
-                createEvent
+                createEvent,
+                getEvents
             }}
         >
             {children}
