@@ -1,6 +1,6 @@
-const Event = () => {
+const Event = ({organizer, eventType, description}) => {
   return (
-    <div>Event</div>
+    <h5>{eventType}</h5>
   )
 }
 export default Event

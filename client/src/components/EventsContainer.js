@@ -25,9 +25,16 @@ const EventsContainer = () => {
   }
 
   return (
-    <div>
-      
-    </div>
+    <Wrapper>
+      <h5>
+        {totalEvents} event{events.length && 's'} found
+      </h5>
+      <div className="events">
+        {events.map(event => {
+          return <Event key={event._id} {...event}/>
+        })}
+      </div>
+    </Wrapper>
   )
 }
 export default EventsContainer
