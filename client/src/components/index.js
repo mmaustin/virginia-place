@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import SmallSidebar from "./SmallSidebar";
 import EventsContainer from './EventsContainer';
 import SearchContainer from './SearchContainer';
+import EventInfo from './EventInfo';
 
 export {
     FormRow,
@@ -13,5 +14,6 @@ export {
     SmallSidebar,
     Navbar,
     EventsContainer,
-    SearchContainer
+    SearchContainer,
+    EventInfo
 }
