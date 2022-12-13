@@ -18,7 +18,9 @@ import {
     CLEAR_VALUES,
     CREATE_EVENT_BEGIN,
     CREATE_EVENT_SUCCESS,
-    CREATE_EVENT_ERROR,     
+    CREATE_EVENT_ERROR,
+    GET_EVENTS_BEGIN,
+    GET_EVENTS_SUCCESS     
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -163,7 +165,19 @@ const reducer = (state, action) => {
           alertType: 'danger',
           alertText: action.payload.msg,
         }
-      }      
+      }
+      if (action.type === GET_EVENTS_BEGIN) {
+        return { ...state, isLoading: true, showAlert: false }
+      }
+      if (action.type === GET_EVENTS_SUCCESS) {
+        return {
+          ...state,
+          isLoading: false,
+          events: action.payload.events,
+          totalEvents: action.payload.totalEvents,
+          numOfPages: action.payload.numOfPages,
+        }
+      }            
 
     throw new Error(`no such action: ${action.type}`);
 
