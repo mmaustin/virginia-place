@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from 'react-icons/fa'
+import { FaPlay, FaCalendarAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { useAppContext } from '../context/appContext'
 import Wrapper from '../assets/wrappers/Event'
@@ -17,11 +17,14 @@ const Event = ({_id, organizer, eventType, description, createdAt}) => {
         <div className='main-icon'>{eventType.charAt(0)}</div>
         <div className='info'>
           <h5>{organizer}</h5>
-          <h5>{eventType}</h5>
           <h5>{description}</h5>
         </div>
       </header>
       <div className='content'>
+        <div className='content-center'>
+          <EventInfo icon={<FaCalendarAlt />} text={date} />
+          <EventInfo icon={<FaPlay />} text={eventType} />
+        </div>        
         <footer>
           <div className='actions'>
             <Link to='add-event' className='btn edit-btn' onClick={()=> setEditEvent(_id)}>Edit</Link>
