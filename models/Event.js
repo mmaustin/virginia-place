@@ -13,6 +13,12 @@ const EventSchema = new mongoose.Schema({
         maxlength: 30,
         trim: true,        
     },
+    dateTime: {
+        type: String,
+        required: [true, 'Please provide event\'s date and time.'],
+        maxlength: 40,
+        trim: true,        
+    },
     description: {
       type: String,
       required: [true, 'Please provide a description of the event.'],
