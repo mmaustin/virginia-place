@@ -1,5 +1,6 @@
 import moment from 'moment';
-import { FaPlay, FaCalendarAlt } from 'react-icons/fa'
+import { FaPlay, FaCalendarAlt } from 'react-icons/fa';
+import {IoMdPerson} from 'react-icons/io';
 import { Link } from 'react-router-dom'
 import { useAppContext } from '../context/appContext'
 import Wrapper from '../assets/wrappers/Event'
@@ -22,7 +23,7 @@ const Event = ({_id, organizer, eventType, description, createdAt, dateTime}) =>
       <div className='content'>
         <div className='content-center'>
           <EventInfo icon={<FaCalendarAlt />} text={dateTime} />
-          <EventInfo icon={<FaPlay />} text={organizer} />
+          <EventInfo icon={<IoMdPerson />} text={organizer} />
           <EventInfo icon={<FaPlay />} text={eventType} />
         </div>        
         <footer>

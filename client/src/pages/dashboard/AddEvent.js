@@ -48,7 +48,7 @@ const AddEvent = () => {
             value={dateTime}
             handleChange={handleEventInput}
           />
-          <label htmlFor="description" className='form-label'>Description (200 characters)</label>
+          <label htmlFor="description" className='form-label'>Description (150 characters)</label>
           <textarea
             className='form-description'
             id='description'

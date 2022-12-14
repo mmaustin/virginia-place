@@ -22,7 +22,7 @@ const EventSchema = new mongoose.Schema({
     description: {
       type: String,
       required: [true, 'Please provide a description of the event.'],
-      maxlength: 200,
+      maxlength: 150,
       trim: true,
     },
     createdBy: {
