@@ -21,9 +21,9 @@ const Event = ({_id, organizer, eventType, description, createdAt, dateTime}) =>
       </header>
       <div className='content'>
         <div className='content-center'>
-          <EventInfo icon={<FaCalendarAlt />} date={dateTime} />
-          <EventInfo icon={<FaPlay />} org={organizer} />
-          <EventInfo icon={<FaPlay />} type={eventType} />
+          <EventInfo icon={<FaCalendarAlt />} text={dateTime} />
+          <EventInfo icon={<FaPlay />} text={organizer} />
+          <EventInfo icon={<FaPlay />} text={eventType} />
         </div>        
         <footer>
           <div className='actions'>
