@@ -27,7 +27,7 @@ const EventsContainer = () => {
   return (
     <Wrapper>
       <h5>
-        {totalEvents} event{events.length && 's'} found
+        {totalEvents} event{events.length > 1 && 's'} found
       </h5>
       <div className="events">
         {events.map(event => {
