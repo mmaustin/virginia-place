@@ -40,6 +40,7 @@ const initialState = {
     editEventId: '',
     organizer: '',
     eventType: '',
+    dateTime: '',
     description: '',
     events: [],
     totalEvents: 0,
@@ -182,11 +183,12 @@ const AppProvider = ({children}) => {
     const createEvent = async () => {
         dispatch({ type: CREATE_EVENT_BEGIN })
         try {
-          const { organizer, description, eventType } = state
+          const { organizer, description, eventType, dateTime } = state
           await authFetch.post('/events', {
             organizer,
             description,
-            eventType
+            eventType,
+            dateTime
           })
           dispatch({ type: CREATE_EVENT_SUCCESS })
           dispatch({ type: CLEAR_VALUES })
