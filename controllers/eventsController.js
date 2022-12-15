@@ -22,7 +22,6 @@ const getEvents = async (req, res) => {
 }
 
 const updateEvent = async (req, res) => {
-    console.log(req.params)
     const { id: eventId } = req.params
     const { organizer, description, dateTime, eventType } = req.body
   
