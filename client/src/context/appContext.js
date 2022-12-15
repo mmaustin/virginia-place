@@ -224,6 +224,10 @@ const AppProvider = ({children}) => {
         dispatch({type: SET_EDIT_EVENT, payload: {id} });
     }
 
+    const editEvent = () => {
+        console.log('edit event');
+    }
+
     const deleteEvent = (id) => {
         console.log(`delete event: ${id}`);
     }
@@ -243,7 +247,8 @@ const AppProvider = ({children}) => {
                 createEvent,
                 getEvents,
                 setEditEvent,
-                deleteEvent
+                deleteEvent,
+                editEvent,
             }}
         >
             {children}
