@@ -22,7 +22,8 @@ import {
     CREATE_EVENT_SUCCESS,
     CREATE_EVENT_ERROR,
     GET_EVENTS_BEGIN,
-    GET_EVENTS_SUCCESS,          
+    GET_EVENTS_SUCCESS,
+    SET_EDIT_EVENT,          
 } from "./actions";
 
 const token = localStorage.getItem('token');
@@ -220,7 +221,7 @@ const AppProvider = ({children}) => {
     }
     
     const setEditEvent = (id) => {
-        console.log(`set edit id: ${id}`);
+        dispatch({type: SET_EDIT_EVENT, payload: {id} });
     }
 
     const deleteEvent = (id) => {
