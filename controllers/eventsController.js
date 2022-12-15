@@ -22,30 +22,30 @@ const getEvents = async (req, res) => {
 }
 
 const updateEvent = async (req, res) => {
-    res.status(201).json({msg: 'event updated'})
-    // const { id: eventId } = req.params
-    // const { organizer, description } = req.body
+    console.log(req.params)
+    const { id: eventId } = req.params
+    const { organizer, description, dateTime, eventType } = req.body
   
-    // if (!organizer || !description) {
-    //   throw new BadRequestError('Please provide all values')
-    // }
-    // const event = await Event.findOne({ _id: eventId })
+    if (!organizer || !description || !dateTime || !eventType) {
+      throw new BadRequestError('Please provide all values')
+    }
+    const event = await Event.findOne({ _id: eventId })
   
-    // if (!event) {
-    //   throw new NotFoundError(`No job with id :${eventId}`)
-    // }
+    if (!event) {
+      throw new NotFoundError(`No job with id :${eventId}`)
+    }
     // check permissions
     
     // checkPermissions(req.user, event.createdBy)
     
-    //findOneAndUpdate does not trigger any hooks that may be present on the model
-    //you would use model.save() and the alternative updating approach outlined in video 150
-    // const updatedEvent = await Event.findOneAndUpdate({ _id: eventId }, req.body, {
-    //   new: true,
-    //   runValidators: true,
-    // })
+    // findOneAndUpdate does not trigger any hooks that may be present on the model
+    // you would use model.save() and the alternative updating approach outlined in video 150
+    const updatedEvent = await Event.findOneAndUpdate({ _id: eventId }, req.body, {
+      new: true,
+      runValidators: true,
+    })
   
-    // res.status(StatusCodes.OK).json({ updatedEvent })
+    res.status(StatusCodes.OK).json({ updatedEvent })
 }
 
 const deleteEvent = async (req, res) => {
