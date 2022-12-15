@@ -1,26 +1,27 @@
 import { initialState } from "./appContext";
 
 import {
-    DISPLAY_ALERT,
-    CLEAR_ALERT,
-    REGISTER_USER_BEGIN,
-    REGISTER_USER_SUCCESS,
-    REGISTER_USER_ERROR,
-    LOGIN_USER_BEGIN,
-    LOGIN_USER_SUCCESS,
-    LOGIN_USER_ERROR,
-    LOGOUT_USER,
-    TOGGLE_SIDEBAR,
-    UPDATE_USER_BEGIN,
-    UPDATE_USER_SUCCESS,
-    UPDATE_USER_ERROR,
-    HANDLE_CHANGE,
-    CLEAR_VALUES,
-    CREATE_EVENT_BEGIN,
-    CREATE_EVENT_SUCCESS,
-    CREATE_EVENT_ERROR,
-    GET_EVENTS_BEGIN,
-    GET_EVENTS_SUCCESS     
+  DISPLAY_ALERT,
+  CLEAR_ALERT,
+  REGISTER_USER_BEGIN,
+  REGISTER_USER_SUCCESS,
+  REGISTER_USER_ERROR,
+  LOGIN_USER_BEGIN,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_ERROR,
+  LOGOUT_USER,
+  TOGGLE_SIDEBAR,
+  UPDATE_USER_BEGIN,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_ERROR,
+  HANDLE_CHANGE,
+  CLEAR_VALUES,
+  CREATE_EVENT_BEGIN,
+  CREATE_EVENT_SUCCESS,
+  CREATE_EVENT_ERROR,
+  GET_EVENTS_BEGIN,
+  GET_EVENTS_SUCCESS,
+  SET_EDIT_EVENT     
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -178,7 +179,21 @@ const reducer = (state, action) => {
           totalEvents: action.payload.totalEvents,
           numOfPages: action.payload.numOfPages,
         }
-      }            
+      }
+      
+      if (action.type === SET_EDIT_EVENT) {
+        const event = state.events.find((event) => event._id === action.payload.id)
+        const { _id, organizer, eventType, dateTime, description } = event
+        return {
+          ...state,
+          isEditing: true,
+          editEventId: _id,
+          organizer,
+          eventType,
+          dateTime,
+          description,
+        }
+      }      
 
     throw new Error(`no such action: ${action.type}`);
 
