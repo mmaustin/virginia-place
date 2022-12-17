@@ -16,6 +16,11 @@ const createEvent = async (req, res) => {
 
 }
 
+const getAllEvents = async(res) => {
+  const allEvents = await Event.find();
+  res.status(StatusCodes.OK).json({allEvents, allTotalEvents: allEvents.length, numberOfPages: 1})
+}
+
 const getEvents = async (req, res) => {
     const events = await Event.find({createdBy: req.user.userId});
     res.status(StatusCodes.OK).json({events, totalEvents: events.length, numOfPages: 1});
@@ -63,4 +68,4 @@ const deleteEvent = async (req, res) => {
     res.status(StatusCodes.OK).json({ msg: 'Success! Event removed' })    
 }
 
-export {getEvents, createEvent, updateEvent, deleteEvent};
+export {getAllEvents,getEvents, createEvent, updateEvent, deleteEvent};
