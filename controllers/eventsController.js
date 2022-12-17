@@ -16,7 +16,7 @@ const createEvent = async (req, res) => {
 
 }
 
-const getAllEvents = async(res) => {
+const getAllEvents = async(req, res) => {
   const allEvents = await Event.find();
   res.status(StatusCodes.OK).json({allEvents, allTotalEvents: allEvents.length, numberOfPages: 1})
 }
