@@ -26,7 +26,8 @@ import {
     SET_EDIT_EVENT,
     EDIT_EVENT_BEGIN,
     EDIT_EVENT_SUCCESS,
-    EDIT_EVENT_ERROR,              
+    EDIT_EVENT_ERROR,
+    DELETE_EVENT_BEGIN            
 } from "./actions";
 
 const token = localStorage.getItem('token');
@@ -217,8 +218,7 @@ const AppProvider = ({children}) => {
                 payload: {events, numOfPages, totalEvents}
             })
         } catch (error) {
-            console.log(error.response);
-            //logoutUser();
+            logoutUser();
         }
         clearAlert();
     }
@@ -250,8 +250,15 @@ const AppProvider = ({children}) => {
         clearAlert()
     }
 
-    const deleteEvent = (id) => {
-        console.log(`delete event: ${id}`);
+    const deleteEvent = async (eventId) => {
+        dispatch({ type: DELETE_EVENT_BEGIN })
+        try {
+          await authFetch.delete(`/events/${eventId}`)
+          getEvents()
+        } catch (error) {
+          //console.log(error.response);
+          logoutUser()
+        }
     }
 
     return(
