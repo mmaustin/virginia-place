@@ -23,7 +23,10 @@ import {
     CREATE_EVENT_ERROR,
     GET_EVENTS_BEGIN,
     GET_EVENTS_SUCCESS,
-    SET_EDIT_EVENT,          
+    SET_EDIT_EVENT,
+    EDIT_EVENT_BEGIN,
+    EDIT_EVENT_SUCCESS,
+    EDIT_EVENT_ERROR,              
 } from "./actions";
 
 const token = localStorage.getItem('token');
@@ -224,8 +227,27 @@ const AppProvider = ({children}) => {
         dispatch({type: SET_EDIT_EVENT, payload: {id} });
     }
 
-    const editEvent = () => {
-        console.log('edit event');
+    const editEvent = async () => {
+        dispatch({ type: EDIT_EVENT_BEGIN })
+
+        try {
+          const { organizer, description, eventType, dateTime} = state
+          await authFetch.patch(`/events/${state.editEventId}`, {
+            organizer,
+            description,
+            eventType,
+            dateTime
+          })
+          dispatch({ type: EDIT_EVENT_SUCCESS })
+          dispatch({ type: CLEAR_VALUES })
+        } catch (error) {
+          if (error.response.status === 401) return
+          dispatch({
+            type: EDIT_EVENT_ERROR,
+            payload: { msg: error.response.data.msg },
+          })
+        }
+        clearAlert()
     }
 
     const deleteEvent = (id) => {
