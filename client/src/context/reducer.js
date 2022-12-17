@@ -21,7 +21,11 @@ import {
   CREATE_EVENT_ERROR,
   GET_EVENTS_BEGIN,
   GET_EVENTS_SUCCESS,
-  SET_EDIT_EVENT     
+  SET_EDIT_EVENT,
+  EDIT_EVENT_BEGIN,
+  EDIT_EVENT_SUCCESS,
+  EDIT_EVENT_ERROR,
+  DELETE_EVENT_BEGIN      
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -192,6 +196,35 @@ const reducer = (state, action) => {
           eventType,
           dateTime,
           description,
+        }
+      }
+
+      if (action.type === DELETE_EVENT_BEGIN) {
+        return { ...state, isLoading: true }
+      }
+  
+      if (action.type === EDIT_EVENT_BEGIN) {
+        return {
+          ...state,
+          isLoading: true,
+        }
+      }
+      if (action.type === EDIT_EVENT_SUCCESS) {
+        return {
+          ...state,
+          isLoading: false,
+          showAlert: true,
+          alertType: 'success',
+          alertText: 'Event Updated!',
+        }
+      }
+      if (action.type === EDIT_EVENT_ERROR) {
+        return {
+          ...state,
+          isLoading: false,
+          showAlert: true,
+          alertType: 'danger',
+          alertText: action.payload.msg,
         }
       }      
 
