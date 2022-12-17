@@ -6,6 +6,7 @@ import { useAppContext } from '../../context/appContext';
 const AddEvent = () => {
   const {showAlert, displayAlert, isLoading, organizer, eventType, dateTime, description, isEditing, handleChange, clearValues, createEvent, editEvent } = useAppContext();
 
+
   const handleSubmit = e => {
     e.preventDefault();
     if(!organizer || !description || !eventType || !dateTime){
