@@ -33,6 +33,7 @@ const Landing = () => {
                     snackwave, artisan same everyday carry church-key farm-to-table kombucha.
                 </p>
                 <Link to='/register' className='btn btn-hero'> Login/Register</Link>
+                <Link to='/events' className='btn btn-hero'> Events </Link>
             </div>
             <img src={main} alt='event scene' className='img'/>
         </div>
