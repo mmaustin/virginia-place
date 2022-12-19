@@ -1,5 +1,5 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import { Landing, Error, Register, ProtectedRoute } from './pages';
+import { Landing, Error, Register, ProtectedRoute, GrabEvents } from './pages';
 import { AllEvents, AddEvent, Profile, SharedLayout } from './pages/dashboard';
 
 const App = () => {
@@ -20,6 +20,7 @@ const App = () => {
         </Route>
         <Route path='/landing' element={<Landing/>} />
         <Route path='/register' element={<Register/>} />
+        <Route path='/events' element={<GrabEvents/>} />
         <Route path='*' element={<Error/>} />
       </Routes>
     </BrowserRouter>
