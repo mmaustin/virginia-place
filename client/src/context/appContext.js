@@ -1,4 +1,4 @@
-import React, { useContext, useReducer} from "react";
+import React, { useContext, useEffect, useReducer} from "react";
 import reducer from "./reducer";
 import axios from 'axios';
 
@@ -43,7 +43,7 @@ const initialState = {
     alertType: '',
     allEvents: [],
     allTotalEvents: 0,
-    numberOfPAges: 1,
+    numberOfPages: 1,
     user: user ? JSON.parse(user) : null,
     token: token,
     showSidebar: false,
@@ -118,11 +118,11 @@ const AppProvider = ({children}) => {
     const grabEvents = async() => {
       dispatch({type: GRAB_EVENTS_BEGIN});
       try {
-        const {data} = await axios.get('/events/all');
-        const {allEvents, allTotalEvents, numberOfPAges} = data;
+        const {data} = await axios.get('/api/v1/events/all');
+        const {allEvents, allTotalEvents, numberOfPages} = data;
         dispatch({
           type: GRAB_EVENTS_SUCCESS,
-          payload: {allEvents, allTotalEvents, numberOfPAges}
+          payload: {allEvents, allTotalEvents, numberOfPages}
         });
       } catch (error) {
         dispatch({

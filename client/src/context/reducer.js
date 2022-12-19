@@ -3,6 +3,9 @@ import { initialState } from "./appContext";
 import {
   DISPLAY_ALERT,
   CLEAR_ALERT,
+  GRAB_EVENTS_BEGIN,
+  GRAB_EVENTS_SUCCESS,
+  GRAB_EVENTS_ERROR,  
   REGISTER_USER_BEGIN,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_ERROR,
@@ -46,6 +49,31 @@ const reducer = (state, action) => {
         }
       }
 
+      if(action.type === GRAB_EVENTS_BEGIN){
+        return {...state, isLoading: true};
+      }
+      if(action.type === GRAB_EVENTS_SUCCESS){
+        return {
+          ...state,
+          isLoading: false,
+          showAlert: true,
+          allEvents: action.payload.allEvents,
+          allTotalEvents: action.payload.allTotalEvents,
+          numberOfPAges: action.payload.numberOfPages,
+          alertType: 'success',
+          alertText: 'All Events Happening on Virginia Place!'
+        }
+      }
+      if(action.type === GRAB_EVENTS_ERROR){
+        return {
+          ...state,
+          isLoading: false,
+          showAlert: true,
+          alertType: 'danger',
+          alertText: action.payload.msg
+        };
+      }      
+
       if(action.type === REGISTER_USER_BEGIN){
         return {...state, isLoading: true};
       }
@@ -88,6 +116,7 @@ const reducer = (state, action) => {
           ...state,
           isLoading: false,
           showAlert: true,
+          alertType: 'danger',
           alertText: action.payload.msg
         };
       }
