@@ -5,6 +5,9 @@ import axios from 'axios';
 import {
     DISPLAY_ALERT,
     CLEAR_ALERT,
+    GRAB_EVENTS_BEGIN,
+    GRAB_EVENTS_SUCCESS,
+    GRAB_EVENTS_ERROR,
     REGISTER_USER_BEGIN,
     REGISTER_USER_SUCCESS,
     REGISTER_USER_ERROR,
@@ -110,6 +113,23 @@ const AppProvider = ({children}) => {
         setTimeout(()=> {
             dispatch({type: CLEAR_ALERT})
         }, 3000);
+    }
+
+    const grabEvents = async() => {
+      dispatch({type: GRAB_EVENTS_BEGIN});
+      try {
+        const {data} = await axios.get('/events/all');
+        const {allEvents, allTotalEvents, numberOfPAges} = data;
+        dispatch({
+          type: GRAB_EVENTS_SUCCESS,
+          payload: {allEvents, allTotalEvents, numberOfPAges}
+        });
+      } catch (error) {
+        dispatch({
+          type: GRAB_EVENTS_ERROR,
+          payload: {msg: error.response.data.msg}
+        });
+      }
     }
 
     const registerUser = async (currentUser) => {
@@ -268,6 +288,7 @@ const AppProvider = ({children}) => {
         <AppContext.Provider 
             value={{
                 ...state,
+                grabEvents,
                 displayAlert,
                 registerUser,
                 loginUser,
