@@ -346,3 +346,12 @@ nav {
   display: flex;
   align-items: center;
 }
+
+#grab-events {
+  margin: 30px;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}

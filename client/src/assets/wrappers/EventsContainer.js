@@ -1,6 +1,13 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.section`
+  margin: 30px;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+
   margin-top: 4rem;
   h2 {
     text-transform: none;
