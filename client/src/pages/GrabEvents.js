@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useAppContext } from "../context/appContext";
 import Wrapper from "../assets/wrappers/GrabEventsContainer";
 import Loading from "../components/Loading";
-import Event from "../components/Event";
+import EventNoAuth from "../components/EventNoAuth";
 import { Link } from "react-router-dom";
 
 const GrabEvents = () => {
@@ -32,7 +32,7 @@ const GrabEvents = () => {
         </h5>
         <div className="events">
             {allEvents.map(event => {
-            return <Event key={event._id} {...event}/>
+            return <EventNoAuth key={event._id} {...event}/>
             })}
         </div>
         <Link to='/' className="btn btn-hero">Your Page</Link>
