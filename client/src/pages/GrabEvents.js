@@ -25,10 +25,16 @@ const GrabEvents = () => {
       }    
 
   return (
-    <>
-        <h3>Grab Events</h3>
-        <h4>{allTotalEvents}</h4>
-    </>
+    <Wrapper>
+      <h5>
+        {allTotalEvents} event{allEvents.length > 1 && 's'} found
+      </h5>
+      <div className="events">
+        {allEvents.map(event => {
+          return <Event key={event._id} {...event}/>
+        })}
+      </div>
+    </Wrapper>
   )
 }
 export default GrabEvents
