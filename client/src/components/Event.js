@@ -1,4 +1,3 @@
-import moment from 'moment';
 import { FaPlay, FaCalendarAlt } from 'react-icons/fa';
 import {IoMdPerson} from 'react-icons/io';
 import { Link } from 'react-router-dom'
@@ -7,8 +6,6 @@ import Wrapper from '../assets/wrappers/Event'
 import EventInfo from './EventInfo';
 
 const Event = ({_id, organizer, eventType, description, createdAt, dateTime}) => {
-  let date = moment(createdAt);
-  date = date.format('MMM Do, YYYY');
 
   const {setEditEvent, deleteEvent} = useAppContext();
 

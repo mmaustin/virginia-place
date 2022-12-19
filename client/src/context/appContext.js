@@ -130,6 +130,7 @@ const AppProvider = ({children}) => {
           payload: {msg: error.response.data.msg}
         });
       }
+      clearAlert();
     }
 
     const registerUser = async (currentUser) => {
@@ -148,7 +149,7 @@ const AppProvider = ({children}) => {
                 payload: {msg: error.response.data.msg}
             });
         }
-        clearAlert();
+      clearAlert();
     }
 
     const loginUser = async (currentUser) => {

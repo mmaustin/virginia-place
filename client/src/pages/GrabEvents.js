@@ -4,9 +4,10 @@ import Wrapper from "../assets/wrappers/GrabEventsContainer";
 import Loading from "../components/Loading";
 import EventNoAuth from "../components/EventNoAuth";
 import { Link } from "react-router-dom";
+import { Alert } from "../components";
 
 const GrabEvents = () => {
-    const {allEvents, allTotalEvents, numberOfPages, grabEvents, isLoading} = useAppContext();
+    const {allEvents, allTotalEvents, numberOfPages, grabEvents, isLoading, showAlert} = useAppContext();
 
     useEffect(() => {
       grabEvents();
@@ -27,6 +28,7 @@ const GrabEvents = () => {
 
   return (
     <Wrapper>
+        {showAlert && <Alert/>}
         <h5>
             {allTotalEvents} event{allEvents.length > 1 && 's'} found
         </h5>
