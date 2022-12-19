@@ -3,7 +3,7 @@ import { useAppContext } from "../context/appContext";
 import Wrapper from "../assets/wrappers/GrabEventsContainer";
 import Loading from "../components/Loading";
 import EventNoAuth from "../components/EventNoAuth";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Alert } from "../components";
 
 const GrabEvents = () => {
