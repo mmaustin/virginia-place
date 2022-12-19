@@ -1,20 +1,9 @@
 import main from '../assets/images/main.svg';
 import {Link} from 'react-router-dom';
-import { useEffect } from 'react';
 import logo from '../assets/images/favicon.ico';
 
 
 const Landing = () => {
-
-    // const getData = async ()=>{
-    //     const response = await fetch('/a');
-    //     const data = await response.json();
-    //     console.log(data.arr[0]);
-    // }
-
-    // useEffect(()=>{
-    //     getData();
-    // }, [])
 
   return (
     <main>
