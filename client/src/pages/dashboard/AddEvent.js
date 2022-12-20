@@ -33,29 +33,32 @@ const AddEvent = () => {
         {showAlert && <Alert/>}
         <div className='form-center'>
           <FormRow
-            placeHolder='max 30 characters'
-            labelText='host (max 30 Characters)'
+            placeHolder='maximum 30 characters'
+            labelText='host'
             type='text'
             name='organizer'
             value={organizer}
             handleChange={handleEventInput}
           />
           <FormRow
-            labelText='Event Type (30 characters)'
+            placeHolder='maximum 30 characters'
+            labelText='Event Type'
             type='text'
             name='eventType'
             value={eventType}
             handleChange={handleEventInput}
           />
           <FormRow
-            labelText='Date & Time (30 characters)'
+            placeHolder='maximum 30 characters'
+            labelText='Date & Time'
             type='text'
             name='dateTime'
             value={dateTime}
             handleChange={handleEventInput}
           />
-          <label htmlFor="description" className='form-label'>Description (150 characters)</label>
+          <label htmlFor="description" className='form-label'>Description</label>
           <textarea
+            placeHolder='maximum 150 characters'
             className='form-textarea'
             id='description'
             type='text'
