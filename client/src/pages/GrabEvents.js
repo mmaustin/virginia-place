@@ -29,6 +29,8 @@ const GrabEvents = () => {
   return (
     <Wrapper>
         {showAlert && <Alert/>}
+        <Link to='/' className="btn btn-hero"> Visit Your Page or Register/Login</Link>
+        <p></p>
         <h5>
             {allTotalEvents} event{allEvents.length > 1 && 's'} found
         </h5>
@@ -37,7 +39,6 @@ const GrabEvents = () => {
             return <EventNoAuth key={event._id} {...event}/>
             })}
         </div>
-        <Link to='/' className="btn btn-hero">Your Page</Link>
     </Wrapper>
   )
 }
