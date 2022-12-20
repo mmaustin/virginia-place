@@ -56,12 +56,12 @@ const reducer = (state, action) => {
         return {
           ...state,
           isLoading: false,
-          showAlert: true,
+          // showAlert: true,
           allEvents: action.payload.allEvents,
           allTotalEvents: action.payload.allTotalEvents,
           numberOfPAges: action.payload.numberOfPages,
-          alertType: 'success',
-          alertText: 'All Events Happening on Virginia Place!'
+          // alertType: 'success',
+          // alertText: 'All Events Happening on Virginia Place!'
         }
       }
       if(action.type === GRAB_EVENTS_ERROR){
