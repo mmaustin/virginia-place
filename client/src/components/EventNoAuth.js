@@ -1,6 +1,7 @@
 import { FaPlay, FaCalendarAlt } from 'react-icons/fa';
 import {IoMdPerson} from 'react-icons/io';
-import Wrapper from '../assets/wrappers/Event'
+import {FcClock} from 'react-icons/fc';
+import Wrapper from '../assets/wrappers/Event';
 import EventInfo from './EventInfo';
 
 const EventNoAuth = ({organizer, eventType, description, eventTime, eventDate}) => {
@@ -18,7 +19,7 @@ const EventNoAuth = ({organizer, eventType, description, eventTime, eventDate}) 
           <EventInfo icon={<IoMdPerson />} text={organizer} />
           <EventInfo icon={<FaPlay />} text={eventType} />
           <EventInfo icon={<FaCalendarAlt />} text={eventDate} />
-          <EventInfo icon={<FaCalendarAlt />} text={eventTime} />
+          <EventInfo icon={<FcClock />} text={eventTime} />
         </div>
       </div>
     </Wrapper>

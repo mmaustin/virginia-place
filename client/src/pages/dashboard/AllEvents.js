@@ -3,7 +3,7 @@ import { SearchContainer, EventsContainer } from "../../components"
 const AllEvents = () => {
   return (
     <>
-      <SearchContainer/>
+      {/* <SearchContainer/> */}
       <EventsContainer/>
     </>
   )
