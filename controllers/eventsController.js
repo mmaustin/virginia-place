@@ -5,9 +5,9 @@ import checkPermissions from '../utils/checkPermissions.js';
 
 
 const createEvent = async (req, res) => {
-    const {organizer, eventType, description, dateTime} = req.body;
+    const {organizer, eventType, description, eventDate, eventTime} = req.body;
 
-    if(!organizer || !eventType || !description || !dateTime){
+    if(!organizer || !eventType || !description || !eventDate || !eventTime){
         throw new BadRequestError('Please provide all values');
     }
     req.body.createdBy = req.user.userId;
@@ -28,9 +28,9 @@ const getEvents = async (req, res) => {
 
 const updateEvent = async (req, res) => {
     const { id: eventId } = req.params
-    const { organizer, description, dateTime, eventType } = req.body
+    const { organizer, description, eventDate, eventType, eventTime } = req.body
   
-    if (!organizer || !description || !dateTime || !eventType) {
+    if (!organizer || !description || !eventDate || !eventType ||!eventTime) {
       throw new BadRequestError('Please provide all values')
     }
     const event = await Event.findOne({ _id: eventId })

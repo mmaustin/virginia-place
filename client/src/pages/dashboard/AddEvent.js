@@ -57,7 +57,7 @@ const AddEvent = () => {
             handleChange={handleEventInput}
           />
           <FormRow
-            placeHolder='00:00 (a or p)m'
+            placeHolder='00:00 a/pm'
             labelText='Time'
             type='text'
             name='eventTime'
@@ -66,7 +66,7 @@ const AddEvent = () => {
           />
           <label htmlFor="description" className='form-label'>Description</label>
           <textarea
-            placeHolder='maximum 150 characters'
+            placeholder='maximum 150 characters'
             className='form-textarea'
             id='description'
             type='text'
