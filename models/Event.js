@@ -16,8 +16,12 @@ const EventSchema = new mongoose.Schema({
     dateTime: {
         type: String,
         required: [true, 'Please provide event\'s date and time.'],
-        maxlength: 30,
-        trim: true,        
+        // maxlength: 30,
+        // trim: true,
+        match: [
+          /^((1[0-2]|0?[0-9]):[0-5]?[0-9]\s([ap][m])|((2[0-3]|[0-1]?[0-9]):[0-5][0-9]))$/igm,
+          'Please provide event\'s time.'
+        ]
     },
     description: {
       type: String,
