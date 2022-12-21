@@ -19,8 +19,10 @@ const EventSchema = new mongoose.Schema({
         // maxlength: 30,
         // trim: true,
         match: [
-          /^((1[0-2]|0?[0-9]):[0-5]?[0-9]\s([ap][m])|((2[0-3]|[0-1]?[0-9]):[0-5][0-9]))$/igm,
-          'Please provide event\'s time.'
+          // /^((1[0-2]|0?[0-9]):[0-5]?[0-9]\s([ap][m])|((2[0-3]|[0-1]?[0-9]):[0-5][0-9]))$/igm,
+          // 'Please provide event\'s time.'
+          /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/,
+          'Please provide a valid date.'
         ]
     },
     description: {
