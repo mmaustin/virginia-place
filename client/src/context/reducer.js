@@ -216,15 +216,16 @@ const reducer = (state, action) => {
       
       if (action.type === SET_EDIT_EVENT) {
         const event = state.events.find((event) => event._id === action.payload.id)
-        const { _id, organizer, eventType, dateTime, description } = event
+        const { _id, organizer, eventType, description, eventDate, eventTime } = event
         return {
           ...state,
           isEditing: true,
           editEventId: _id,
           organizer,
           eventType,
-          dateTime,
           description,
+          eventDate,
+          eventTime
         }
       }
 
