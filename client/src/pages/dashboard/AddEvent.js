@@ -4,12 +4,12 @@ import { useAppContext } from '../../context/appContext';
 
 
 const AddEvent = () => {
-  const {showAlert, displayAlert, isLoading, organizer, eventType, dateTime, description, isEditing, handleChange, clearValues, createEvent, editEvent } = useAppContext();
+  const {showAlert, displayAlert, isLoading, organizer, eventType, description, eventDate, eventTime, isEditing, handleChange, clearValues, createEvent, editEvent } = useAppContext();
 
 
   const handleSubmit = e => {
     e.preventDefault();
-    if(!organizer || !description || !eventType || !dateTime){
+    if(!organizer || !description || !eventType || !eventTime || !eventDate){
       displayAlert()
       return
     }
@@ -49,11 +49,19 @@ const AddEvent = () => {
             handleChange={handleEventInput}
           />
           <FormRow
-            placeHolder='maximum 30 characters'
-            labelText='Date & Time'
+            placeHolder='mm-dd-yyyy'
+            labelText='Date'
             type='text'
-            name='dateTime'
-            value={dateTime}
+            name='eventDate'
+            value={eventDate}
+            handleChange={handleEventInput}
+          />
+          <FormRow
+            placeHolder='00:00 (a or p)m'
+            labelText='Time'
+            type='text'
+            name='eventTime'
+            value={eventTime}
             handleChange={handleEventInput}
           />
           <label htmlFor="description" className='form-label'>Description</label>
