@@ -170,7 +170,8 @@ const reducer = (state, action) => {
           organizer: '',
           eventType: '',
           description: '',
-          dateTime: '',
+          eventDate: '',
+          eventTime: ''
         }
     
         return {

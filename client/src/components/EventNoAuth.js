@@ -3,7 +3,7 @@ import {IoMdPerson} from 'react-icons/io';
 import Wrapper from '../assets/wrappers/Event'
 import EventInfo from './EventInfo';
 
-const EventNoAuth = ({organizer, eventType, description, dateTime}) => {
+const EventNoAuth = ({organizer, eventType, description, eventTime, eventDate}) => {
 
   return (
     <Wrapper>
@@ -15,9 +15,10 @@ const EventNoAuth = ({organizer, eventType, description, dateTime}) => {
       </header>
       <div className='content'>
         <div className='content-center'>
-          <EventInfo icon={<FaCalendarAlt />} text={dateTime} />
           <EventInfo icon={<IoMdPerson />} text={organizer} />
           <EventInfo icon={<FaPlay />} text={eventType} />
+          <EventInfo icon={<FaCalendarAlt />} text={eventDate} />
+          <EventInfo icon={<FaCalendarAlt />} text={eventTime} />
         </div>
       </div>
     </Wrapper>

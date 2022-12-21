@@ -5,7 +5,7 @@ import { useAppContext } from '../context/appContext'
 import Wrapper from '../assets/wrappers/Event'
 import EventInfo from './EventInfo';
 
-const Event = ({_id, organizer, eventType, description, createdAt, dateTime}) => {
+const Event = ({_id, organizer, eventType, description, createdAt, eventDate, eventTime}) => {
 
   const {setEditEvent, deleteEvent} = useAppContext();
 
@@ -19,9 +19,10 @@ const Event = ({_id, organizer, eventType, description, createdAt, dateTime}) =>
       </header>
       <div className='content'>
         <div className='content-center'>
-          <EventInfo icon={<FaCalendarAlt />} text={dateTime} />
           <EventInfo icon={<IoMdPerson />} text={organizer} />
           <EventInfo icon={<FaPlay />} text={eventType} />
+          <EventInfo icon={<FaCalendarAlt />} text={eventDate} />
+          <EventInfo icon={<FaCalendarAlt />} text={eventTime} />
         </div>        
         <footer>
           <div className='actions'>
