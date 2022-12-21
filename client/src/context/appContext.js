@@ -31,7 +31,7 @@ import {
     EDIT_EVENT_BEGIN,
     EDIT_EVENT_SUCCESS,
     EDIT_EVENT_ERROR,
-    DELETE_EVENT_BEGIN            
+    DELETE_EVENT_BEGIN
 } from "./actions";
 
 const token = localStorage.getItem('token');
