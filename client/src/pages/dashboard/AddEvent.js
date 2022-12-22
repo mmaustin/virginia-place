@@ -64,9 +64,10 @@ const AddEvent = () => {
             value={eventTime}
             handleChange={handleEventInput}
           />
-          <label htmlFor="description" className='form-label'>Description</label>
-          <textarea
-            placeholder='maximum 150 characters'
+          {/* <label htmlFor="description" className='form-label'>Description</label>
+          <textarea */}
+          <FormRow
+            placeHolder='maximum 150 characters'
             className='form-textarea'
             id='description'
             type='text'
