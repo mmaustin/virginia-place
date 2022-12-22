@@ -68,12 +68,11 @@ const AddEvent = () => {
           <textarea */}
           <FormRow
             placeHolder='maximum 150 characters'
-            className='form-textarea'
             id='description'
-            type='text'
+            type='textarea'
             name='description'
             value={description}
-            onChange={handleEventInput}
+            handleChange={handleEventInput}
           />
           <div className='btn-container'>
             <button
