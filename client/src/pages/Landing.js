@@ -1,6 +1,7 @@
 import main from '../assets/images/main.svg';
 import {Link} from 'react-router-dom';
 import logo from '../assets/images/favicon.ico';
+import {FaRegSmileBeam} from 'react-icons/fa'
 
 
 const Landing = () => {
@@ -13,13 +14,14 @@ const Landing = () => {
         <div className='container'>
             <div className='info'>
                 <h1>
-                    Events Page
+                    welcome neighbors!!
                 </h1>
                 <p>
-                    Swag typewriter pour-over whatever farm-to-table edison bulb.
-                    Unicorn edison bulb whatever gatekeep, pok pok health goth cronut
-                    chambray keffiyeh. Health goth vinyl DIY pork belly skateboard
-                    snackwave, artisan same everyday carry church-key farm-to-table kombucha.
+                    Want to know what's popping off on our quiet, little block?  View the 
+                    events' page below or register to add your own event. (For security purposes,
+                    no reference is made to our block's name, nor is it advisable to put identifying
+                    markers--address, phone number, etc--in any of the form fields. We already know who
+                    we are! &nbsp;{<FaRegSmileBeam/>} )
                 </p>
                 <Link to='/register' className='btn btn-hero'> Login/Register</Link>
                 &nbsp;&nbsp;<span className='landing-span'>Or View All Of The </span>&nbsp;&nbsp;
