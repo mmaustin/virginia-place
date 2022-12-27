@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import { FormRow, Alert } from '../components';
 import { useAppContext } from '../context/appContext';
 import {useNavigate} from 'react-router-dom';
+import logo from '../assets/images/favicon.ico';
 //import {Link} from 'react-router-dom';
 
 const localState = {
@@ -51,7 +52,7 @@ useEffect(()=> {
   return (
     <main className='full-page'>
       <form className='form' onSubmit={onSubmit}>
-        <h2>LOGO</h2>
+      <img src={logo} alt='register logo' className='logo'/>
         <h3>{values.isMember ? 'Login' : 'Register'}</h3>
         {showAlert && <Alert/>}
         {!values.isMember && (<FormRow
