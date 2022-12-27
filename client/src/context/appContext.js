@@ -74,7 +74,6 @@ const AppProvider = ({children}) => {
     
       authFetch.interceptors.request.use(
         (config) => {
-            //not config.headers.common!!!! don't know why it worked on the last project?
           config.headers['Authorization'] = `Bearer ${state.token}`
           return config
         },
@@ -284,7 +283,6 @@ const AppProvider = ({children}) => {
           await authFetch.delete(`/events/${eventId}`)
           getEvents()
         } catch (error) {
-          //console.log(error.response);
           logoutUser()
         }
     }

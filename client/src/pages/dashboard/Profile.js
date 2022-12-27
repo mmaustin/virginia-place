@@ -19,8 +19,6 @@ const Profile = () => {
     updateUser({name, email, buildingNumber});
   }
 
-  //const handleBuildingChange = (e) => setBuildingNumber(e.target.value)
-
   return (
     <Wrapper>
       <form className='form' onSubmit={handleSubmit}>

@@ -5,7 +5,7 @@ import Loading from "./Loading";
 import Event from './Event';
 
 const EventsContainer = () => {
-  const {events, getEvents, isLoading, totalEvents, pages} = useAppContext();
+  const {events, getEvents, isLoading, totalEvents} = useAppContext();
   
   useEffect(() => {
     getEvents()
