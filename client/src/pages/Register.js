@@ -3,7 +3,7 @@ import { FormRow, Alert } from '../components';
 import { useAppContext } from '../context/appContext';
 import {useNavigate} from 'react-router-dom';
 import logo from '../assets/images/favicon.ico';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const localState = {
   name: '',
@@ -83,6 +83,7 @@ useEffect(()=> {
             {values.isMember ? 'Register' : 'Login'}
           </button>
         </p>
+        <Link to='/events' className='btn btn-hero'> Events Page</Link>
       </form>
     </main>
   )

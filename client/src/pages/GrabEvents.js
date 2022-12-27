@@ -7,7 +7,7 @@ import { Link} from "react-router-dom";
 import { Alert } from "../components";
 
 const GrabEvents = () => {
-    const {allEvents, allTotalEvents, numberOfPages, grabEvents, isLoading, showAlert} = useAppContext();
+    const {allEvents, allTotalEvents, grabEvents, isLoading, showAlert} = useAppContext();
 
     useEffect(() => {
       grabEvents();
