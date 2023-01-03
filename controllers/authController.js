@@ -16,7 +16,6 @@ const register = async (req, res) => {
     const user = await User.create({ name, email, password })
   
     const token = user.createJWT()
-    //this is the info that's returned to the front-end
     res.status(StatusCodes.CREATED).json({
       user: {
         name: user.name,

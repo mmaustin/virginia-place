@@ -38,12 +38,11 @@ const updateEvent = async (req, res) => {
     if (!event) {
       throw new NotFoundError(`No job with id :${eventId}`)
     }
-    // check permissions
     
     checkPermissions(req.user, event.createdBy)
     
     // findOneAndUpdate does not trigger any hooks that may be present on the model
-    // you would use model.save() and the alternative updating approach outlined in video 150
+    // you would use model.save() and the alternative updating approach
     const updatedEvent = await Event.findOneAndUpdate({ _id: eventId }, req.body, {
       new: true,
       runValidators: true,
