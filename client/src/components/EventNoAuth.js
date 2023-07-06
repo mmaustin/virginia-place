@@ -19,7 +19,7 @@ const EventNoAuth = ({organizer, eventType, description, eventTime, eventDate}) 
           <EventInfo icon={<IoMdPerson />} text={organizer} />
           <EventInfo icon={<FaPlay />} text={eventType} />
           <EventInfo icon={<FaCalendarAlt />} text={eventDate} />
-          <EventInfo icon={<FcClock />} text={eventTime} />
+          <EventInfo icon={<FcClock />} text={eventTime.toUpperCase()} />
         </div>
       </div>
     </Wrapper>

@@ -23,7 +23,7 @@ const Event = ({_id, organizer, eventType, description, createdAt, eventDate, ev
           <EventInfo icon={<IoMdPerson />} text={organizer} />
           <EventInfo icon={<FaPlay />} text={eventType} />
           <EventInfo icon={<FaCalendarAlt />} text={eventDate} />
-          <EventInfo icon={<FcClock />} text={eventTime} />
+          <EventInfo icon={<FcClock />} text={eventTime.toUpperCase()} />
         </div>        
         <footer>
           <div className='actions'>

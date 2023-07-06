@@ -21,7 +21,7 @@ const Landing = () => {
                     events' page below or register to add your own event. (For security purposes,
                     no reference is made to our block's name, nor is it advisable to put identifying
                     markers--address, phone number, etc--in any of the form fields. We already know who
-                    we are! &nbsp;{<FaRegSmileBeam/>} )
+                    we are! &nbsp;{<FaRegSmileBeam/>} ).
                 </p>
                 <Link to='/register' className='btn btn-hero'> Login/Register</Link>
                 &nbsp;&nbsp;<span className='landing-span'>Or View All Of The </span>&nbsp;&nbsp;

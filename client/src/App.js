@@ -18,7 +18,7 @@ const App = () => {
           <Route path='add-event' element={<AddEvent />} />
           <Route path='profile' element={<Profile />} />
         </Route>
-        <Route path='/landing' element={<Landing/>} />
+        {/* <Route path='/landing' element={<Landing/>} /> */}
         <Route path='/register' element={<Register/>} />
         <Route path='/events' element={<GrabEvents/>} />
         <Route path='*' element={<Error/>} />

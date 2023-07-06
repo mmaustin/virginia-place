@@ -29,7 +29,7 @@ const GrabEvents = () => {
   return (
     <Wrapper>
         {showAlert && <Alert/>}
-        <Link to='/' className="btn btn-hero"> Visit Your Page or Return Home</Link>
+        <Link to='/' className="btn btn-hero"> Visit Your Page or Login/Register</Link>
         <p></p>
         <h5>
             {allTotalEvents} event{allEvents.length > 1 && 's'} found
